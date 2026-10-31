@@ -1,0 +1,14 @@
+# The main pipeline for dapsample
+resources:
+  pipelines:
+    dapsample_pipeline:
+      name: dapsample_pipeline
+      catalog: workspace
+      schema: dapsample_${bundle.target}
+      serverless: true
+      libraries:
+        - notebook:
+            path: ../src/pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
